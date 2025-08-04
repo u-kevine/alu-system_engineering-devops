@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Configures an Nginx server to listen on port 80.
+
+# Install Nginx if not installed
+apt update && apt install -y nginx
+service nginx start
+
+# Ensure Nginx listens on port 80
+rm -f /etc/nginx/sites-enabled/default
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx restart
