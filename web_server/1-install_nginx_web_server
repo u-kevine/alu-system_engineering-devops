@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
-#Install ngin and configure it to listen on port 80
-#GET request (requesting a page) using curl, it must return a page that contains the string Holberton School
+# Script to install and configure Nginx to return "Holberton School"
 
-sudo apt-get update && upgrade
-sudo apt-get install nginx -y
+# Update package lists and install nginx
+apt-get update -y
+apt-get install nginx -y
 
-#create a directory nside your serverand a file for your page
-sudo mkdir /var/www/html
-sudo touch /var/www/html/index.html
-#Echo the message
-sudo echo "Holberton School" > /var/www/html/index.html
-sudo service nginx restart
+# Overwrite the default index.html to contain required text
+echo "Holberton School for the win!" > /var/www/html/index.html
+
+# Start nginx (without using systemctl)
+service nginx start
